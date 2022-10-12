@@ -84,7 +84,7 @@ scp marcos@35.205.43.164:/home/marcos/mifichero.tar.gz /home/marcos/Escritorio
   -stress-ng -c1 -t20 (nucleos, segundos)
 -Pausar --> kill -STOP PID
 -Reanudar --> kill -CONT PID
--Reducir prioridad al mínimo --> renice -n 19 -p PID
+-Reducir prioridad al mínimo --> renice -n -20 -p PID
 -Limitar --> ulimit -t300 (5 minutos)
 -Crontab:
   -sudo crontab -u root -e
