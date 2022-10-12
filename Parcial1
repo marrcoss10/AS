@@ -68,6 +68,7 @@ scp marcos@35.205.43.164:/home/marcos/mifichero.tar.gz /home/marcos/Escritorio
 -Rnapshot:
   -sudo apt install rsync rsnapshot
   -sudo vim /etc/rsnapshot
+    snapshot_root /backups/
     retain hourly 24
     backup marcos@35.205.43.164:/home/ /35.205.43.164/
   -sudo rnapshot -t hourly 
