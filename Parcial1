@@ -1,1 +1,23 @@
-Hola
+---HISTORIAL---
+vim .bashrc
+  shopt -s histappend                      # append to history, don't overwrite it
+  export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+source .bashrc
+.bash_history > historia.txt
+
+---COPIAR DE GOOGLE CLOUD A MI PC---
+scp marcos@35.205.43.164:/home/marcos/mifichero.tar.gz /home/marcos/Escritorio
+
+---1.1.ADMINISTRACIÓN EN LINUX---
+-Listar sólo ficheros --> ls -F | grep /
+-Listar en orden de modificación --> ls -lt
+-Comprimir:
+  tar -cvf name.tar /dir
+  tar -cvzf name.tar.zp /dir
+-Descomprimir:
+  tar -xvf name.tar     o     tar -xvf name.tar -C /dir
+  tar -xvzf name.tar    o     tar -xvzf name.tar -C /dir
+-Variable de entorno --> export VAR="value"
+-Modificar extensión --> mv $file "${file.txt}".t
+-Sustituir palabra --> sed -i "s/PAL/$n" $n.txt
