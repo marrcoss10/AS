@@ -21,3 +21,35 @@ scp marcos@35.205.43.164:/home/marcos/mifichero.tar.gz /home/marcos/Escritorio
 -Variable de entorno --> export VAR="value"
 -Modificar extensión --> mv $file "${file.txt}".t
 -Sustituir palabra --> sed -i "s/PAL/$n" $n.txt
+
+---1.2.SISTEMAS DE FICHEROS---
+-Crear partición y montarla:
+  lsblk -e7
+  sudo cfdisk /dev/sdb
+  sudo mkfs.ext3 /dev/sdb1
+  sudo mkdir /disco1
+  sudo mount -t ext3 /dev/sdb1 /disco1
+  sudo cp -r /var* /disco1
+  sudo rezide2fs M /dev/sdb1
+  sudo umount /disco1
+-Partición permamente:
+  lsblk -e7
+  sudo cfdisk /dev/sdb
+  sudo mkfs.ext3 /dev/sdb1
+  sudo mkdir /disco1
+  sudo cp /etc/fstab /etc/fstab.backup
+  sudo blkid /dev/sdb1  (UUID)
+  sudo vim /etc/fstab
+    UUID=X /disco1 etx3 discard,defaults,nofail 0 2
+-Volúmenes:
+  -sudo vgcreate volumen1 /dev/sdb1 /dev/sdb2
+  -sudo lvcreate volumen1 -l 100%FREE -n volumen1
+  -sudo mkfs.ext3 /dev/volumen1/volumen1
+  -sudo mkdir /miVol
+  -sudo mount -t ext3 /dev/volumen1/volumen1 /miVol
+  -*sudo pvcrete /dev/sdb3
+  -sudo vgextend volumen1/volumen1 /dev/sdb3
+  -sudo umount /miVol
+  -sudo lvremove /dev/volumen1/volumen1
+-RAID:
+  -
