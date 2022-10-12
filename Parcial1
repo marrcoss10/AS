@@ -30,7 +30,7 @@ scp marcos@35.205.43.164:/home/marcos/mifichero.tar.gz /home/marcos/Escritorio
   sudo mkdir /disco1
   sudo mount -t ext3 /dev/sdb1 /disco1
   sudo cp -r /var* /disco1
-  sudo rezide2fs M /dev/sdb1
+  sudo rezize2fs -M /dev/sdb1
   sudo umount /disco1
 -Partición permamente:
   lsblk -e7
