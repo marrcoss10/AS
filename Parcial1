@@ -71,6 +71,7 @@ scp marcos@35.205.43.164:/home/marcos/mifichero.tar.gz /home/marcos/Escritorio
     snapshot_root /backups/
     retain hourly 24
     backup marcos@35.205.43.164:/home/ /35.205.43.164/
+  -sudo rsnapshot configtest
   -sudo rnapshot -t hourly 
   -sudo rnapshot-diff /dir1 /dir2
   
