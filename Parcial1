@@ -142,3 +142,6 @@ scp marcos@35.205.43.164:/home/marcos/mifichero.tar.gz /home/marcos/Escritorio
   -Cliente escribe un mensaje --> mosquitto_pub -h IPSERVIDOR -t "ciudades/bizkaia" -m "Bilbao"
   -Servidor se subscribe a un topic y todos sus subtopic --> mosquitto_sub -h localhost -t "ciudades/#"
   -Publicar un mensje retenido --> mosquitto_pub -h IPSERVIDOR -t "ciudades/bizkaia" -m "Barakaldo" -r
+
+---WHILE---
+i=$((i+1))
