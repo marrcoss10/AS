@@ -109,6 +109,8 @@ scp marcos@35.205.43.164:/home/marcos/mifichero.tar.gz /home/marcos/Escritorio
     sudo vim /etc/syslog.d/50-default.conf
       ssh.debug /var/log/ssh.log
     sudo service rsyslog restart
+  -Mail: 
+    -##########################
 -Benchmarks:
   -wget https://tu-dresden.de/zih/forschung/ressourcen/dateien/projekte/firestarter/FIRESTARTER_2.0.tar.gz
   -sudo mkdir firestarter
@@ -116,3 +118,27 @@ scp marcos@35.205.43.164:/home/marcos/mifichero.tar.gz /home/marcos/Escritorio
   -cd /firestarter
   -Ejecutar durante 30s --> ./FIRESTARTER -t 30 -r
   -Muestra los tipos disponibles en la CPU --> ./FIRESTARTER -a
+
+---2.1.SERVICIOS EN RED---
+-NFS:
+  -apt update
+  -apt install nfs-common (Cliente)
+  -apt install nfs-kernel-server nfs-common (Servidor)
+  -Compartir una carpeta (Servidor):
+    -sudo mkdir /compartir
+    -sudo vim /etc/exports
+      /compartir *(ro,root_squash,no_subtree_check)
+    -sudo chown nobody:nogroup /compartir
+    -sudo exportfs -ra
+    -sudo exportfs -v
+  -Montar la carpeta en /dir (Cliente):
+    -sudo mount -t nfs IPSERVIDOR:/compartir /dir
+    -df -h
+  -Cambiar permisos para que se pueda editar (Servidor):
+    -#####################
+-Mosquitto:
+  -sudo apt install mosquitto-clients
+  -Servidor se subscribe a un topic --> mosquitto_sub -h localhost -t "ciudades/bizkaia"
+  -Cliente escribe un mensaje --> mosquitto_pub -h IPSERVIDOR -t "ciudades/bizkaia" -m "Bilbao"
+  -Servidor se subscribe a un topic y todos sus subtopic --> mosquitto_sub -h localhost -t "ciudades/#"
+  -Publicar un mensje retenido --> mosquitto_pub -h IPSERVIDOR -t "ciudades/bizkaia" -m "Barakaldo" -r
