@@ -100,7 +100,19 @@ scp marcos@35.205.43.164:/home/marcos/mifichero.tar.gz /home/marcos/Escritorio
   -sudo mount -O remount /disco1
   -sudo quotaon -v /disco1
   -sudo edquota -u marcos (En KB)
-  -sudo quotacheck -u marcos
   -sudo chown marcos:marcos /disco1
   -quota
   -sudo quotaoff -v /disco1
+-Logs:
+  -Enviar mensaje a /var/log/syslog --> logger "Hola"
+  -Nivel debug:
+    sudo vim /etc/syslog.d/50-default.conf
+      ssh.debug /var/log/ssh.log
+    sudo service rsyslog restart
+-Benchmarks:
+  -wget https://tu-dresden.de/zih/forschung/ressourcen/dateien/projekte/firestarter/FIRESTARTER_2.0.tar.gz
+  -sudo mkdir firestarter
+  -sudo tar -xvzf FIRESTARTER_2.tar.gz /firestarter 
+  -cd /firestarter
+  -Ejecutar durante 30s --> ./FIRESTARTER -t 30 -r
+  -Muestra los tipos disponibles en la CPU --> ./FIRESTARTER -a
