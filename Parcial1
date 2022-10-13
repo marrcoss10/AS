@@ -137,7 +137,7 @@ scp marcos@35.205.43.164:/home/marcos/mifichero.tar.gz /home/marcos/Escritorio
     -sudo mount -t nfs IPSERVIDOR:/compartir /dir
     -df -h
   -Cambiar permisos para que se pueda editar (Servidor):
-    -#####################
+    -sudo chown marcos:marcos /compartir
 -Mosquitto:
   -sudo apt install mosquitto-clients
   -Servidor se subscribe a un topic --> mosquitto_sub -h localhost -t "ciudades/bizkaia"
