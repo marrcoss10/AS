@@ -119,6 +119,7 @@ scp marcos@35.205.43.164:/home/marcos/mifichero.tar.gz /home/marcos/Escritorio
   -sudo tar -xvzf FIRESTARTER_2.tar.gz /firestarter 
   -cd /firestarter
   -Ejecutar durante 30s --> ./FIRESTARTER -t 30 -r
+  -Ejecuta x instrucción --> ./FIRESTARTER -t 30 -i x
   -Muestra los tipos disponibles en la CPU --> ./FIRESTARTER -a
 
 ---2.1.SERVICIOS EN RED---
