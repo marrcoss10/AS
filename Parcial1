@@ -20,7 +20,7 @@ scp marcos@35.205.43.164:/home/marcos/mifichero.tar.gz /home/marcos/Escritorio
   tar -xvzf name.tar    o     tar -xvzf name.tar -C /dir
 -Variable de entorno --> export VAR="value"
 -Modificar extensión --> mv $file "${file.txt}".t
--Sustituir palabra --> sed -i "s/PAL/$n" $n.txt
+-Sustituir palabra --> sed -i "s/PAL/$palsustituta" $ficherosustituir.txt
 
 ---1.2.SISTEMAS DE FICHEROS---
 -Crear partición y montarla:
