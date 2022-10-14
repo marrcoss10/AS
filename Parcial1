@@ -147,4 +147,6 @@ scp marcos@35.205.43.164:/home/marcos/mifichero.tar.gz /home/marcos/Escritorio
   -Publicar un mensje retenido --> mosquitto_pub -h IPSERVIDOR -t "ciudades/bizkaia" -m "Barakaldo" -r
 
 ---WHILE---
-i=$((i+1))
+-i=$((i+1))
+-Cuando reciba mensaje --> mosquitto_sub -h IP -t "topic" | while read value; do
+  -$value
