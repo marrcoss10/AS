@@ -79,7 +79,7 @@ scp marcos@35.205.43.164:/home/marcos/mifichero.tar.gz /home/marcos/Escritorio
 ---1.3.MONITORIZACIÓN---
 -Prioridad (PR) --> 20 + NI
   -NI --> [-20..19]
--Ordenar PR --> top -o -PR
+-Ordenar PR --> top -o PR
 -Stress-ng:
   -sudo apt install stress-ng
   -stress-ng -c1 -t20 (nucleos, segundos)
