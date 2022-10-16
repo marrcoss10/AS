@@ -53,7 +53,7 @@ scp marcos@35.205.43.164:/home/marcos/mifichero.tar.gz /home/marcos/Escritorio
   -sudo umount /miVol
   -sudo lvremove /dev/volumen1/volumen1
 -RAID:
-  -sudo apt install mdadm rsync initranmfs-tools -y
+  -sudo apt install mdadm rsync initramfs-tools -y
   -sudo mdadm --create /dev/md0  -l raid -n 2 /dev/sdb1 /dev/sdb2
   -sudo mdadm --detail /dev/md0
   -sudo mkfs.ext3 /dev/md0
