@@ -135,6 +135,7 @@ scp marcos@35.205.43.164:/home/marcos/mifichero.tar.gz /home/marcos/Escritorio
     -sudo chown nobody:nogroup /compartir
     -sudo exportfs -ra
     -sudo exportfs -v
+    -service nfs-kernel-server restart
   -Montar la carpeta en /dir (Cliente):
     -sudo mount -t nfs IPSERVIDOR:/compartir /dir
     -df -h
