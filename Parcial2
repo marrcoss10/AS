@@ -1,0 +1,17 @@
+---DOCKER---
+-Ver contenedores en marcha --> sudo docker ps
+-Ver contenedores creados --> sudo docker ps -a
+-Ver imágenes creads --> sudo docker images
+-Borrar contenedor --> sudo docker rm ID/nombrecontenedor
+-Borrar imágen --> sudo docker rmi ID/nombreimagen
+-Borrar todos los contenedores e imágenes creadas --> sudo docker prune
+
+-Dockerfile --> FROM,RUN,COPY,WORKDIR,CMD
+-Crear imagen --> sudo docker build -t nombreinvent .
+-Crear contenedor con una imagen --> sudo docker run nombreimagen
+-Shell:
+	-No está en funcionamiento --> sudo docker run -it nombreimagen
+	-Está en funcionamiento --> sudo docker exec -it ID/nombrecontenedor /bin/sh
+-Abrir un puero y redirigirlo --> sudo docker run -p 127.0.0.1:PORT:80/tcp nombreimagen
+-Parar un contenedor en marcha --> sudo docker kill/stop ID/nombrecontenedor
+-Redis-cli --> set miVar 7 // get miVar
