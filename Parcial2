@@ -5,13 +5,24 @@
 -Borrar contenedor --> sudo docker rm ID/nombrecontenedor
 -Borrar imágen --> sudo docker rmi ID/nombreimagen
 -Borrar todos los contenedores e imágenes creadas --> sudo docker prune
+-Fichero Docker para elasticsearch:
+	vim docker-compose.yaml
+		services:
+		  elasticsearch:
+		    image: docker.elastic.co/elasticsearch/elasticsearch:8.5.1
+		    container_name: elasticsearch
+		    environment:
+		      - discovery.type=single-node
+		      - xpack.security.enabled=false
+		    volumes:
+		      - data01:/usr/share/elasticsearch
+		    ports:
+		      - 9200:9200
+		      - 9300:9300
+		  volumes:
+		    data01:
+-Levantar contenedor --> sudo docker compose up
+-Comprobar funcionamiento: (google)
+	-Google cloud --> IP_EXTERNA:9200
+	-Local --> localhost:9200
 
--Dockerfile --> FROM,RUN,COPY,WORKDIR,CMD
--Crear imagen --> sudo docker build -t nombreinvent .
--Crear contenedor con una imagen --> sudo docker run nombreimagen
--Shell:
-	-No está en funcionamiento --> sudo docker run -it nombreimagen
-	-Está en funcionamiento --> sudo docker exec -it ID/nombrecontenedor /bin/sh
--Abrir un puero y redirigirlo --> sudo docker run -p 127.0.0.1:PORT:80/tcp nombreimagen
--Parar un contenedor en marcha --> sudo docker kill/stop ID/nombrecontenedor
--Redis-cli --> set miVar 7 // get miVar
