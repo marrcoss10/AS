@@ -39,6 +39,26 @@
 -Cargar un documento --> curl -H "Content-Type: application/json" -XPOST 127.0.0.1:9200/nombreIndex/_doc/ID --data-binary @name.json
 -Cargar varios documentos --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_bulk' --data-binary @name.json
 
+-Modificar un documento --> curl -H "Content-Type: application/json" -XPOST '127.0.0.1:9200/nombreIndex/_update/ID' -data-binary @name.json
+-Eliminar un documento --> curl -XDELETE '127.0.0.1:9200/nombreIndex/_doc/ID' 
+
 -Buscar 10 resultados --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_search?pretty' -d '{"from":0,"size":10}'
 -Ciudad Bilbao --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_search?pretty' -d '{"query":{"match":{"city":"Bilbao"}}}'
--Ordenar por edad ascendente --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_search?pretty' -d {"sort":[{"age":"asc"}}]}' //desc
+-Ordenar por edad ascendente --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_search?pretty' -d '{"sort":[{"age":"asc"}}]}' //desc
+-Pais X pero no Y ciudad --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_search?pretty' -d '{
+   "query":{"bool":{
+     "must":[{"match":{"country":"X"}}],
+     "must_not":[{"match":{"city":"Y"}}]
+   }}
+ }'
+-Buscar nombre Paco, como Pco --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_search?pretty' -d '{"query":{"fuzzy":{"name":"Pco"}}}'
+-FALTA
+	-FILTER
+	-EXPRESIONES REGULARES
+	-MATCH_ALL
+	-MULTI_MATCH
+	-MATCH_PHARSE + SLOP
+	-HITS
+	
+	-MAPPING
+	-EJERCICIOS DIAPOSITIVAS
