@@ -79,6 +79,4 @@
 		- [a-c] --> a o b o c
 		- [^abc] --> cualquiera menos a b o c
 -FALTA
-	-HITS
-
 	-EJERCICIOS DIAPOSITIVAS
