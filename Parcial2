@@ -39,7 +39,15 @@
 -Cargar un documento --> curl -H "Content-Type: application/json" -XPOST 127.0.0.1:9200/nombreIndex/_doc/ID --data-binary @name.json
 -Cargar varios documentos --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_bulk' --data-binary @name.json
 
--Modificar un documento --> curl -H "Content-Type: application/json" -XPOST '127.0.0.1:9200/nombreIndex/_update/ID' -data-binary @name.json
+-Añadir campos a un índice --> curl -H "Content-Type: application/json" -XPUT '127.0.0.1:9200/nombreIndex/_mapping?pretty' -d {
+   "properties:"{"campoA":{"type":"text"},"campoB":{"type":"integer"}}
+ }
+-Cargar datos --> Crear un documento json (name.json): "luego bulk"
+	{"index":{"_id":"1"}}
+	{"campoA":"abc","campoB":10}
+	{"index":{"_id":"2"}}
+	{"campoA":"def","campoB":23}
+-Modificar un documento --> curl -H "Content-Type: application/json" -XPOST '127.0.0.1:9200/nombreIndex/_update/ID' -d {"campoB":100}
 -Eliminar un documento --> curl -XDELETE '127.0.0.1:9200/nombreIndex/_doc/ID' 
 
 -Buscar 10 resultados --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_search?pretty' -d '{"from":0,"size":10}'
