@@ -60,13 +60,25 @@
    }}
  }'
 -Buscar nombre Paco, como Pco --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_search?pretty' -d '{"query":{"fuzzy":{"name":"Pco"}}}'
+-Más búsquedas:
+	-Filter --> Dentro de un bool
+	-Should --> Dentro de un filter, y dentro de otro bool dentro del filter --> [{}] "Se cumple una u otra"
+	-Match_phrase --> Como match pero para frases largas
+		-Variante --> "match_phrase":{"desc":{"query":"la casa es azul", "slop":2}} --> Consigue también la azul casa
+	-Multi_match --> "multi_match": {"query":"roja","fields":["campoA","campoB"]} --> "permite hacer la misma query en múltiples campos"
+	-Expresiones regulares "regexp":
+		- ab. --> 1 (cualquiera)
+		- a+b+ --> 1..*
+		- ab* --> 0..*
+		- ab? --> 0..1
+		- a{3}b --> 3
+		- a{2,4} --> 2..4
+		- a{2,} --> 2..
+		- | --> Or
+		- [abc] --> a o b o c
+		- [a-c] --> a o b o c
+		- [^abc] --> cualquiera menos a b o c
 -FALTA
-	-FILTER
-	-EXPRESIONES REGULARES
-	-MATCH_ALL
-	-MULTI_MATCH
-	-MATCH_PHARSE + SLOP
 	-HITS
-	
-	-MAPPING
+
 	-EJERCICIOS DIAPOSITIVAS
