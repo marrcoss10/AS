@@ -131,6 +131,7 @@
 
 -Enviar objetos json al índice de elasticsearch --> curl 127.0.0.1:9563 -d {"campoA":"A","campoB":"B"}
 -Grok --> https://github.com/logstash-plugins/logstash-patterns-core/blob/main/patterns/ecs-v1/grok-patterns
+	  https://www.javainuse.com/grok
 
 -FALTA
 	-EJERCICIOS DIAPOSITIVAS
