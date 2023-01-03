@@ -118,7 +118,7 @@
 	    source => "message"
 	    targer => "docu"
 	  }
-	  grok{.........}
+	  grok{match => {"message" => "%{...} %{...}"}}
 	}
 	output{
 	  stdout{}
