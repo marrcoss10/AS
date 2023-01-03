@@ -96,7 +96,7 @@
 	    ports:
 	      - 9200:9200
 	      - 9300:9300
-	  logtash:
+	  logstash:
 	    image: docker.elastic.co/logstash/logstash:8.5.1
 	    container_name: logstash
 	    volumes:
