@@ -35,7 +35,7 @@
 -Nº de docs de un índice --> curl -XGET 127.0.0.1:9200/nombreIndex/_count?pretty
 -Documentos de un índice --> curl -XGET 127.0.0.1:9200/nombreIndex/_search?pretty
 
--Crear un índice --> curl -H "Content-Type: application/json" -XPUT 127.0.0.1/9200/nombreIndex
+-Crear un índice --> curl -H "Content-Type: application/json" -XPUT 127.0.0.1:9200/nombreIndex
 -Cargar un documento --> curl -H "Content-Type: application/json" -XPOST 127.0.0.1:9200/nombreIndex/_doc/ID --data-binary @name.json
 -Cargar varios documentos --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_bulk' --data-binary @name.json
 
