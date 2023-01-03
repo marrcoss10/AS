@@ -133,3 +133,4 @@
 -Enviar objetos json al índice de elasticsearch --> curl 127.0.0.1:9900 -d  {json obtenido del grok}
 -Grok --> https://github.com/logstash-plugins/logstash-patterns-core/blob/main/patterns/ecs-v1/grok-patterns
 	  https://www.javainuse.com/grok
+-Eliminar datos (dentro de filter)--> mutate{remove_field => ["nombreCampoA","nombreCampoB"]}
