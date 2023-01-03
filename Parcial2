@@ -51,15 +51,15 @@
 -Eliminar un documento --> curl -XDELETE '127.0.0.1:9200/nombreIndex/_doc/ID' 
 
 -Buscar 10 resultados --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_search?pretty' -d '{"from":0,"size":10}'
--Ciudad Bilbao --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_search?pretty' -d '{"query":{"match":{"city":"Bilbao"}}}'
+-Ciudad Bilbao --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_search?pretty' -d '{"query":{"match":{"city":"bilbao"}}}'
 -Ordenar por edad ascendente --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_search?pretty' -d '{"sort":[{"age":"asc"}}]}' //desc
 -Pais X pero no Y ciudad --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_search?pretty' -d '{
    "query":{"bool":{
-     "must":[{"match":{"country":"X"}}],
-     "must_not":[{"match":{"city":"Y"}}]
+     "must":[{"match":{"country":"x"}}],
+     "must_not":[{"match":{"city":"y"}}]
    }}
  }'
--Buscar nombre Paco, como Pco --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_search?pretty' -d '{"query":{"fuzzy":{"name":"Pco"}}}'
+-Buscar nombre Paco, como Pco --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_search?pretty' -d '{"query":{"fuzzy":{"name":"pco"}}}'
 -Más búsquedas:
 	-Filter --> Dentro de un bool
 	-Should --> Dentro de un filter, y dentro de otro bool dentro del filter --> [{}] "Se cumple una u otra"
