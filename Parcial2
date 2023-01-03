@@ -129,7 +129,7 @@
 -curl 127.0.0.1:9563 -d 'Hola mundo'
 
 -Enviar objetos json al índice de elasticsearch --> curl 127.0.0.1:9563 -d {"campoA":"A","campoB":"B"}
--Gork --> Diapositiva 25 en filter
+-Grok --> Diapositiva 25 en filter
 
 -FALTA
 	-EJERCICIOS DIAPOSITIVAS
