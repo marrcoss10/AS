@@ -66,6 +66,7 @@
 	-Match_phrase --> Como match pero para frases largas
 		-Variante --> "match_phrase":{"desc":{"query":"la casa es azul", "slop":2}} --> Consigue también la azul casa
 	-Multi_match --> "multi_match": {"query":"roja","fields":["campoA","campoB"]} --> "permite hacer la misma query en múltiples campos"
+	-Prefix --> Dentro del query
 	-Expresiones regulares "regexp":
 		- ab. --> 1 (cualquiera)
 		- a+b+ --> 1..*
