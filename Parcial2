@@ -134,3 +134,4 @@
 -Grok --> https://github.com/logstash-plugins/logstash-patterns-core/blob/main/patterns/ecs-v1/grok-patterns
 	  https://www.javainuse.com/grok
 -Eliminar datos (dentro de filter)--> mutate{remove_field => ["nombreCampoA","nombreCampoB"]}
+-Codición para no procesar objetos X (dentro de filter) --> if [campoA] == "X" {drop{}} 
