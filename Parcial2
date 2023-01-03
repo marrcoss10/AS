@@ -79,5 +79,57 @@
 		- [abc] --> a o b o c
 		- [a-c] --> a o b o c
 		- [^abc] --> cualquiera menos a b o c
+
+---LOGSTASH---
+-mkdir logstash
+-cd logstash
+-vim docker-file.yml
+	services:
+	  elasticsearch:
+	    image: docker.elastic.co/elasticsearch/elasticsearch:8.5.1
+	    container_name: elasticsearch
+	    environment:
+	      - discovery.type=single-node
+	      - xpack.security.enabled=false
+	    volumes:
+	      - data01:/usr/share/elasticsearch/data
+	    ports:
+	      - 9200:9200
+	      - 9300:9300
+	  logtash:
+	    image: docker.elastic.co/logstash/logstash:8.5.1
+	    container_name: logstash
+	    volumes:
+	      - ./pipeline/usr/share/logstash/pipeline
+	    ports:
+	      - 9563:9563
+	    depends_on:
+	      - elasticsearch
+	volumes:
+	  data01:
+-vim logstash.conf
+	input{
+	  http{
+	    port => '9563'
+	  }
+	}
+	filter{
+	  json{
+	    source => "message"
+	    targer => "docu"
+	  }
+	}
+	output{
+	  stdout{}
+	  elasticseach{
+	    index => "nombreIndex"
+	  }
+	}
+-sudo docker compose up
+-curl 127.0.0.1:9563 -d 'Hola mundo'
+
+-Enviar objetos json al índice de elasticsearch --> curl 127.0.0.1:9563 -d {"campoA":"A","campoB":"B"}
+-
+
 -FALTA
 	-EJERCICIOS DIAPOSITIVAS
