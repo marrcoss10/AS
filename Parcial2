@@ -40,7 +40,7 @@
 -Cargar varios documentos --> curl -H "Content-Type: application/json" -XGET '127.0.0.1:9200/nombreIndex/_bulk' --data-binary @name.json
 
 -Añadir campos a un índice --> curl -H "Content-Type: application/json" -XPUT '127.0.0.1:9200/nombreIndex/_mapping?pretty' -d {
-   "properties:"{"campoA":{"type":"text"},"campoB":{"type":"integer"}}
+   "properties":{"campoA":{"type":"text"},"campoB":{"type":"integer"}}
  }
 -Cargar datos --> Crear un documento json (name.json): "luego bulk"
 	{"index":{"_id":"1"}}
