@@ -42,6 +42,10 @@
 -Añadir campos a un índice --> curl -H "Content-Type: application/json" -XPUT '127.0.0.1:9200/nombreIndex/_mapping?pretty' -d '{
    "properties":{"campoA":{"type":"text"},"campoB":{"type":"integer"}}
  }'
+ -Crear un índice con campos --> curl -H "Content-Type: application/json" -XPUT '127.0.0.1:9200/nombreIndex' -d '{
+   "mappings":{"properties":{"campoA":{"type":"text"},"campoB":{"type":"integer"}}}
+ }'
+
 -Cargar datos --> Crear un documento json (name.json): "luego bulk"
 	{"index":{"_id":"1"}}
 	{"campoA":"abc","campoB":10}
@@ -67,7 +71,8 @@
 		-Variante --> "match_phrase":{"desc":{"query":"la casa es azul", "slop":2}} --> Consigue también la azul casa
 	-Multi_match --> "multi_match": {"query":"roja","fields":["campoA","campoB"]} --> "permite hacer la misma query en múltiples campos"
 	-Prefix --> Dentro del query
-	-Expresiones regulares "regexp":
+	-Wildcard --> Dentro de query --> {"calle":"6*court"}
+	-Expresiones regulares "regexp": --> {"calle":"ab."}
 		- ab. --> 1 (cualquiera)
 		- a+b+ --> 1..*
 		- ab* --> 0..*
