@@ -72,7 +72,7 @@
 	-Multi_match --> "multi_match": {"query":"roja","fields":["campoA","campoB"]} --> "permite hacer la misma query en múltiples campos"
 	-Prefix --> Dentro del query
 	-Wildcard --> Dentro de query --> {"calle":"6*court"}
-	-Expresiones regulares "regexp": --> {"calle":"ab."}
+	-Expresiones regulares "regexp": --> {"calle":"ab."} https://www.elastic.co/guide/en/elasticsearch/reference/current/regexp-syntax.html
 		- ab. --> 1 (cualquiera)
 		- a+b+ --> 1..*
 		- ab* --> 0..*
